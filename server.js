@@ -2,6 +2,8 @@ const spawn = require("child_process").spawn;
 const app = require("express")();
 const port = 8888;
 
+app.set("port", (process.env.PORT || 5000)); //heroku
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 })
@@ -42,4 +44,4 @@ app.all("*", (req, res) => {
     res.send("404");
 });
 
-app.listen(port, () => console.log("listening on port :8888"));
+app.listen(app.get("port"), () => console.log("listening"));
