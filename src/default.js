@@ -195,6 +195,7 @@ class Generator extends React.Component{
     }
 
     handleRandomize(flag=true){
+        document.querySelector("#randomize-button").disabled = true;
         if(flag){
             header = document.querySelector(".nav-header").textContent;
             lastLetter = header.slice(-1);
@@ -226,6 +227,7 @@ class Generator extends React.Component{
                     this.setState({
                         prompt: newPrompt.join(",")
                     });
+                    document.querySelector("#randomize-button").disabled = false;
                 }else{
                     this.setState({prompt: response});
                 }
@@ -357,7 +359,7 @@ class ButtonPanel extends React.Component{
     render(){
         return (
             <div className="button-panel">
-                <button onClick={this.handleClick}>randomize</button>
+                <button id="randomize-button" onClick={this.handleClick}>randomize</button>
                 <button onClick={this.handleClick}>copy</button>
             </div>
         )

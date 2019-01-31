@@ -279,6 +279,7 @@ var Generator = function (_React$Component6) {
 
             var flag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
+            document.querySelector("#randomize-button").disabled = true;
             if (flag) {
                 header = document.querySelector(".nav-header").textContent;
                 lastLetter = header.slice(-1);
@@ -309,6 +310,7 @@ var Generator = function (_React$Component6) {
                     _this7.setState({
                         prompt: newPrompt.join(",")
                     });
+                    document.querySelector("#randomize-button").disabled = false;
                 } else {
                     _this7.setState({ prompt: response });
                 }
@@ -492,7 +494,7 @@ var ButtonPanel = function (_React$Component9) {
                 { className: "button-panel" },
                 React.createElement(
                     "button",
-                    { onClick: this.handleClick },
+                    { id: "randomize-button", onClick: this.handleClick },
                     "randomize"
                 ),
                 React.createElement(
