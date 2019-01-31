@@ -1,0 +1,271 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav{
+    background: #111;
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.nav-header{
+    font-size: 5vh;
+    font-weight: 300;
+    float:left;
+    color:white;
+    height:100%;
+    line-height: 8vh;
+    padding-left: 10px;
+    letter-spacing: 5px;
+}
+
+.nav-links{
+    float: right;
+    height: calc(8vh + 5px);
+    white-space: nowrap;
+}
+
+.nav-item{
+    background: #181818;
+    margin-left: 2px;
+    border-bottom: 5px solid #181818;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.nav-item > div{
+    font-size: 130%;
+    color: #ccc;
+    white-space: nowrap;
+    line-height: 8vh;
+    padding: 0 15px;
+}
+
+.container{
+    background: lightblue;
+    position: fixed;
+    top: calc(8vh + 5px);
+    left: 0;
+    width: 100%;
+    height: calc(100% - 8vh - 5px);
+}
+
+.generator{
+    position: absolute;
+    top: 0; left: 0;
+    height: 40%;
+    width: 100%;
+}
+
+.generator-output{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 62%;
+    text-align: center;
+    margin: 4vh 3vw;
+}
+
+.generator-output > span{
+    font-family: 'Boogaloo', monospace;
+    font-size: calc(2.8vw + .8vh);
+    color: #111;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 2px white;
+    margin: 1vh 0;
+    padding: 1vh;
+    max-height: 4vw;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s;
+}
+
+.generator-output > span.held{
+    background: rgba(218, 218, 218, 0.8);
+    box-shadow: 0 0 2px rgb(218, 218, 218);
+    color: #333;
+}
+
+@keyframes copytext{
+    from {
+        background: rgb(221, 71, 51);
+        box-shadow: 0 0 5px rgb(221, 71, 51);
+    }
+    to {
+        background: rgba(255, 255, 255, .8)
+    }
+}
+
+.button-panel{
+    width: 100%;
+    height: calc(23% - 2vh);
+    text-align: center;
+}
+
+.button-panel > button{
+    background: #111;
+    border: none;
+    outline: none;
+    border-radius: 1vw;
+    color: white;
+    height: 100%;
+    font-size: 2vh;
+    padding: 0 2vw 0 calc(2vw + 5px);
+    margin: 0 5px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s;
+}
+
+.button-panel > button:hover{
+    background: rgb(221, 71, 51);
+}
+
+.button-panel > button:active{
+    background: rgb(221, 98, 81);
+}
+
+.generator-options{
+    background: linear-gradient(to bottom, #ffffff 0%,#e0e0e0 99%);
+    position: absolute;
+    left: 0; bottom: 1vh;
+    height: calc(60% - 4vh);
+    width: 80%;
+    margin: 0 10%;
+    box-shadow: 0 0 3vh rgba(0, 0, 0, 0.25);
+    border-radius: 1vw;
+}
+
+.generator-options > select{
+    position: absolute;
+    top: 1%; left: .5%;
+    width: 99%;
+    height: 10%;
+    border-radius: .8vw .8vw .4vw .4vw;
+    outline: none;
+    font-size: 2vh;
+}
+
+.generator-options > input[type=text]{
+    position: absolute;
+    top: 12%; left: .5%;
+    width: calc(83% - 4px - 2vh);
+    height: 10%;
+    outline: none;
+    border-radius: 0.4vw;
+    padding: 0 1vh;
+    font-size: 3vh;
+    font-weight: 300;
+}
+
+.generator-options > button.mark-all-none{
+    position: absolute;
+    top: 12%; right: .5%;
+    width: 7.5%;
+    height: calc(10% + 4px);
+    background: #ccc;
+    color: #111;
+    outline: none;
+    border: none;
+    border-radius: .4vw;
+    transition: all 0.1s;
+    font-size: 1.3vw;
+}
+
+.generator-options > button.mark-all-none#mark-all{
+    right: 8.5%;
+}
+
+.generator-options > button.mark-all-none:hover{
+    background: #888;
+    color: white;
+}
+
+.generator-options > button.mark-all-none:active{
+    background: #333;
+    color: #fff;
+}
+
+.generator-options-list{
+    background: #eee;
+    position: absolute;
+    top: calc(23% + 3px); left: .5%;
+    height: calc(76% - 3px); width: 99%;
+    border-radius: .4vw .4vw .8vw .8vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 2.8vh;
+    font-weight: 300;
+}
+
+.generator-options-list > div:nth-child(odd){
+    background: #ddd;
+}
+
+.generator-options-list > div:hover{
+    background: #bbb;
+}
+
+.generator-options-list input[type=checkbox]{
+    height: 2.5vh; width: 2.5vh;
+}
+
+.generator-options-list label{
+    display: inline-block;
+    width: calc(100% - 2.5vh - 15px);
+}
+
+.full-dialog{
+    background: #fefefe;
+    position: absolute;
+    top: 0; right: 0%;
+    width: 100%; height: 100%;
+    color: #333;
+    text-align: center;
+    animation: slide-in-right .25s;
+}
+
+.full-dialog > div{
+    width: 100%; height: 100%;
+    overflow-y: auto;
+}
+
+.full-dialog h1{
+    font-weight: 300;
+    font-size: 6vh;
+}
+
+.full-dialog p{
+    font-weight: 300;
+    font-size: 3vh;
+    padding: 0 10vw;
+}
+
+@keyframes slide-in-right{
+    from{
+        right: -100%;
+        opacity: 0;
+    }
+    to{
+        right: 0%;
+        opacity: 1;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    background: #222;
+    border-bottom-color: orange;
+}

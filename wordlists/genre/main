@@ -1,0 +1,14 @@
+# main genre names or main genres with no "significant" sub-genres
+# note: sub-genres in the named files should be able to overlap
+# i.e. jazz rock can be part of both jazz and rock
+
+classical
+country
+electronic
+hip-hop
+jazz
+rock
+metal
+caribbean
+folk
+pop
