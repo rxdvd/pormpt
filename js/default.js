@@ -303,6 +303,7 @@ var Generator = function (_React$Component6) {
             }
             excludes = excludes.length ? "?exclude=" + excludes.join(",") : "";
             ajax("/generate" + excludes).then(function (response) {
+                document.querySelector("#randomize-button").disabled = false;
                 if (_this7.state.prompt) {
                     var newPrompt = _this7.state.prompt.split(",").map(function (e, i) {
                         return _this7.state.held[_this7.state.listCats[i][0]] ? e : response.split(",")[i];
@@ -310,7 +311,6 @@ var Generator = function (_React$Component6) {
                     _this7.setState({
                         prompt: newPrompt.join(",")
                     });
-                    document.querySelector("#randomize-button").disabled = false;
                 } else {
                     _this7.setState({ prompt: response });
                 }

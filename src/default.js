@@ -220,6 +220,7 @@ class Generator extends React.Component{
         excludes = excludes.length ? "?exclude=" + excludes.join(",") : "";
         ajax("/generate" + excludes).then(
             (response) => {
+                document.querySelector("#randomize-button").disabled = false;
                 if(this.state.prompt){
                     let newPrompt = this.state.prompt.split(",").map((e, i) =>
                         this.state.held[this.state.listCats[i][0]] ? e : response.split(",")[i]
@@ -227,7 +228,6 @@ class Generator extends React.Component{
                     this.setState({
                         prompt: newPrompt.join(",")
                     });
-                    document.querySelector("#randomize-button").disabled = false;
                 }else{
                     this.setState({prompt: response});
                 }
