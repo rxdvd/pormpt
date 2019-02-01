@@ -1,38 +1,6 @@
 import sys
 from rng.mersenne_twister import MT19937
 
-# to-do
-# generator should not be built until lists are complete
-
-'''
-ideas:
-
-more normal components should have higher chance
-e.g. 4/4 should have a higher chance to appear
-e.g. main genres should have a higher chance to appear
-e.g. major, minor, harmonic, etc. scales should have higher chance
-
-main genres should have a low chance to branch into sub-genres
-e.g. rock is chosen, then has a 0.2 (or similar) chance to pick a
-     rock sub-genre else just "rock" is shown
-
-make game optional, possibly with an arg
-
-certain components can be ruled out by passing a string parameter of components to avoid
-these components can be filtered out of lists before randomization
-
-3/4 polyrhythmic medium fast spooky symphonic metal sonata in C# Harmonic Minor arranged for cello
-
-3/4
-medium fast
-sonata
-C# Harmonic Minor
-polyrhythmic
-cello
-Kingdom Hearts
-spooky
-symphonic metal
-'''
 mt = MT19937()
 
 flags = {
