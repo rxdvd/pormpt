@@ -233,6 +233,7 @@ class Generator extends React.Component{
                 }
             },
             (err) => {
+                document.querySelector("#randomize-button").disabled = false;
                 console.error(err);
             }
         );

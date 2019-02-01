@@ -315,6 +315,7 @@ var Generator = function (_React$Component6) {
                     _this7.setState({ prompt: response });
                 }
             }, function (err) {
+                document.querySelector("#randomize-button").disabled = false;
                 console.error(err);
             });
         }
