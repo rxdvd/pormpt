@@ -34,14 +34,10 @@ app.get("/list/:f", (req, res, next) => {
         if(!data.toString().includes("false")){
             res.send(data.toString().replace("\n", ""));
         }else{
-            next();
+            res.status(404);
+            res.send("nothing but ghosts here");
         }
     });
-});
-
-app.all("*", (req, res) => {
-    res.status(404);
-    res.send("404");
 });
 
 app.listen(app.get("port"), () => console.log("listening"));
