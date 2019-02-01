@@ -1,6 +1,5 @@
 const spawn = require("child_process").spawn;
 const app = require("express")();
-const port = 8888;
 
 app.set("port", (process.env.PORT || 5000)); //heroku
 
@@ -24,7 +23,11 @@ app.get("/generate", (req, res) => {
     }
     const pythonProcess = spawn("python3", pythonParams);
     pythonProcess.stdout.on("data", (data) => {
-        res.send(data.toString());
+        try{
+            res.send(data.toString());
+        }catch(err){
+            res.redirect(".");
+        }
     });
 });
 
